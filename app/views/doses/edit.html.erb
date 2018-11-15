@@ -1,0 +1,6 @@
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.association :ingredient, collection: Ingredient.all, disabled: true %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
+
