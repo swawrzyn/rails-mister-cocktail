@@ -1,10 +1,12 @@
 <%= simple_form_for(@cocktail) do |f| %>
   <%= f.input :name %>
-  <%= f.association :doses, collection: Ingredient.all %>
+  <%= f.simple_fields_for :doses do |d| %>
+    <%= d.association :ingredient, collection: Ingredient.all %>
+    <%= d.input :description %>
+  <% end %>
   <%= f.button :submit %>
 <% end %>
 
 <%= link_to 'Go back', cocktails_path %>
-
 
 

@@ -13,9 +13,13 @@ class CocktailsController < ApplicationController
 
   def new
     @cocktail = Cocktail.new
+    @cocktail.doses.build
   end
 
   def create
+    # @dose = Dose.new(cocktail_params[:doses_attributes]['0'])
+    # @dose.cocktail = @cocktail
+    # @dose.save
     redirect_to cocktail_path(Cocktail.create(cocktail_params))
   end
 
@@ -23,6 +27,7 @@ class CocktailsController < ApplicationController
 
   def update
     @cocktail.update(cocktail_params)
+
     redirect_to cocktail_path(@cocktail)
   end
 
@@ -33,6 +38,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, doses_attributes: [:ingredient_id, :description])
   end
 end
