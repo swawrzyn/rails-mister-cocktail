@@ -10,4 +10,11 @@
     <% end %>
   </tbody>
 </table>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.association :ingredient, collection: Ingredient.all %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
+
 <%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %> | <%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail) %> | <%= link_to 'Go back', cocktails_path %>
