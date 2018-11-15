@@ -11,7 +11,8 @@
   </head>
 
   <body>
-    <h1>Mister Cocktail</h1>
+    <%= render 'partials/navbar' %>
+    <%= render 'partials/banner' %>
     <%= yield %>
     <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
     <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
