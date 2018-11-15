@@ -5,6 +5,7 @@ class CocktailsController < ApplicationController
   end
 
   def show
+    @reviews = Review.where(cocktail: @cocktail).reverse
     @doses = @cocktail.doses
     @dose = Dose.new
   end

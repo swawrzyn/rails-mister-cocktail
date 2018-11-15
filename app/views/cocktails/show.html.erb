@@ -10,11 +10,43 @@
     <% end %>
   </tbody>
 </table>
+</br>
+<p>
+  <strong>Reviews</strong>
+  <table>
+  <thead>
+    <tr>
+      <th>Rating</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.rating %></td>
+        <td><%= review.content  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+</p>
+
+
+
+<h2>Add Ingredient</h2>
 <%= simple_form_for [@cocktail, @dose] do |f| %>
   <%= f.association :ingredient, collection: Ingredient.all %>
   <%= f.input :description %>
   <%= f.button :submit %>
+<% end %>
+
+<h2>Add Review</h2>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating, collection: 0..5 %>
+  <%= f.button :submit, "Add a review", class: "btn btn-primary" %>
 <% end %>
 
 <%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %> | <%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail) %> | <%= link_to 'Go back', cocktails_path %>
