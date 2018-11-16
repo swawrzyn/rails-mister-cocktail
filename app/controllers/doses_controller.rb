@@ -8,6 +8,9 @@ class DosesController < ApplicationController
 
   def new
     @dose = Dose.new
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   def create
@@ -17,7 +20,11 @@ class DosesController < ApplicationController
     redirect_to cocktail_path(@cocktail)
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.js {}
+    end
+  end
 
   def update
     @dose.update(dose_update_params)

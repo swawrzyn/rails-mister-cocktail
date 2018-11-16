@@ -1,4 +1,63 @@
-<h3><%= @cocktail.name %></h3>
+<%= render 'partials/banner', photo: @cocktail.photo %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="large-card">
+        <div class="large-card-details">
+          <div class="details-header">
+            <h2><%= @cocktail.name %></h2>
+              <div class="average-rating">
+                <% @cocktail.avg_rating.times do %>
+                  <span class='glyphicon glyphicon-star'></span>
+                <% end %>
+              </div>
+              <div class="dose-info">
+            <%= render 'partials/dose-list' %>
+             </div>
+          </div>
+          <div class="details-reviews">
+            <div class="add-review">
+              <%= simple_form_for [@cocktail, @review] do |f| %>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= f.input :content, label: false, placeholder: 'Type in your review' %>
+                </div>
+                <div class="panel-footer" style="height: 56px;">
+                  <%= f.input :rating, label: false, placeholder: 'Type in a rating from 1-5' %>
+                  <%= f.submit "add a review", class: "btn btn-primary" %>
+                </div>
+              </div>
+
+              <% end %>
+            </div>
+
+              <% @reviews.each do |review| %>
+            <div class="panel panel-default">
+            <div class="panel-body">
+              <%= review.content %>
+            </div>
+            <div class="panel-footer">
+              <div class="stars">
+                <% review.rating.times do %>
+                  <span class='glyphicon glyphicon-star'></span>
+                <% end %>
+              </div>
+              <div class="time">
+                <%= review.created_at.strftime("Posted: %m/%d/%Y at %I:%M%p")  %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <h3><%= @cocktail.name %></h3>
 
 <table>
   <thead><td>Ingredient Name</td><td>Amount</td><td>Edit</td></thead>
@@ -50,3 +109,4 @@
 <% end %>
 
 <%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %> | <%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail) %> | <%= link_to 'Go back', cocktails_path %>
+ -->

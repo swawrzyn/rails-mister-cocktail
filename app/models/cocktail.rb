@@ -6,4 +6,13 @@ class Cocktail < ApplicationRecord
   has_many :reviews, dependent: :destroy
   accepts_nested_attributes_for :doses
   mount_uploader :photo, PhotoUploader
+
+  def avg_rating
+    average = 0
+    return average if reviews.count.zero?
+
+    average.to_f
+    reviews.each { |review| average += review.rating }
+    (average / reviews.count).floor
+  end
 end

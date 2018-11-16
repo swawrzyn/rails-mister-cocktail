@@ -1,0 +1,20 @@
+
+    <div class="dose-card-box">
+    <% @doses.each do |dose| %>
+
+      <div class="dose-card">
+    <h4><%= dose.ingredient.name %></h4>
+    <p><%= dose.description %></p>
+    <%= link_to 'edit', edit_cocktail_dose_path(@cocktail, dose), remote: true, class: 'edit-button' %>
+      </div>
+
+
+
+<% end %>
+
+    <div class="dose-card">
+    <h3><%= link_to 'add dose' , new_cocktail_dose_path(@cocktail), remote: true %></h3>
+      </div>
+</div>
+
+

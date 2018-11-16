@@ -9,6 +9,10 @@ class CocktailsController < ApplicationController
     @review = Review.new
     @doses = @cocktail.doses
     @dose = Dose.new
+    respond_to do |format|
+      format.js {}
+      format.html { render 'show' }
+    end
   end
 
   def new

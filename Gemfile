@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+#rest client?
+gem 'rest-client', '~> 2.0.2'
 # front-end gems
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.7'

@@ -8,7 +8,14 @@
 Cocktail.destroy_all
 
 # photos we can use
-photourls = ['https://www.theflavorbender.com/wp-content/uploads/2017/07/COCKTAILS-2.jpg']
+photourls = ['https://www.theflavorbender.com/wp-content/uploads/2017/07/COCKTAILS-2.jpg',
+             'https://stevethebartender.com.au/wp-content/uploads/2015/11/winter-sun-cocktail.jpg',
+             'https://cdn.liquor.com/wp-content/uploads/2016/07/14070101/aviation-720FB.jpg',
+             'https://www.giverecipe.com/wp-content/uploads/2016/04/Strawberry-Lime-Champagne-1.jpg',
+             'https://gl-images.condecdn.net/image/YOlzxZQY75z/crop/1800/f/halloween-cocktails_sq.jpg',
+             'https://usateatsiptrip.files.wordpress.com/2018/04/keggedcocktails.jpg?w=1000&h=600&crop=1',
+             'http://imbibemagazine.com/wp-content/uploads/2018/01/snake-in-grass-pouring-ribbons-crdt-paul-wagtouicz-web-1024x683.jpeg',
+             'http://streeton1st.com/wp-content/themes/streetonfirst/assets/img/cocktails--menu-img.jpg']
 
 # creating ingred
 if Ingredient.all.count == 0
