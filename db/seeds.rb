@@ -28,9 +28,9 @@ if Ingredient.all.count == 0
   end
 end
 
-# puts "Adding Cocktails"
-# 10.times do
-#   c = Cocktail.create(name: Faker::Hipster.words(2).join(' '))
-#   c.remote_photo_url = photourls.sample
-#   c.save
-# end
+puts "Adding Cocktails"
+10.times do
+  c = Cocktail.create(name: Faker::Hipster.words(2).join(' '))
+  c.remote_photo_url = photourls.sample
+  c.save
+end
