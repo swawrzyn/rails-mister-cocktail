@@ -7,14 +7,20 @@
           <div class="details-header">
             <h2><%= @cocktail.name %></h2>
               <div class="average-rating">
-                <% @cocktail.avg_rating.times do %>
-                  <span class='glyphicon glyphicon-star'></span>
+                <% if @cocktail.reviews.count %>
+                  <p>No reviews</p>
+                  <% else %>
+                     <% @cocktail.avg_rating.times do %>
+                    <span class='glyphicon glyphicon-star'></span>
+                  <% end %>
                 <% end %>
+
+              </div>
               </div>
               <div class="dose-info">
             <%= render 'partials/dose-list' %>
              </div>
-          </div>
+
           <div class="details-reviews">
             <div class="add-review">
               <%= simple_form_for [@cocktail, @review] do |f| %>

@@ -1,14 +1,22 @@
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :name %>
-  <%= f.simple_fields_for :doses do |d| %>
-    <%= d.association :ingredient, collection: Ingredient.all %>
-    <%= d.input :description %>
-  <% end %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit %>
-<% end %>
-
-<%= link_to 'Go back', cocktails_path %>
-
+<%= render 'partials/banner', photo: Cocktail.all.sample.photo %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="large-card">
+        <div class="large-card-details">
+          <div class="details-form">
+            <div class="details-form-input">
+              <%= simple_form_for(@cocktail) do |f| %>
+                <%= f.input :name, label: false, placeholder: 'Cocktail name' %>
+                <%= f.input :photo %>
+                <%= f.input :photo_cache, as: :hidden %>
+                <%= f.button :submit, class: 'text-center'%>
+              <% end %>
+            </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 

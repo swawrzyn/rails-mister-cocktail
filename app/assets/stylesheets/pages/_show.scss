@@ -2,21 +2,16 @@
   border: 0.5px solid #ddd;
   margin: 20px;
   margin-top: -150px;
-  box-shadow: 1px 1px 1px 1px #d8d8d8;
+  box-shadow: 0px 19px 42px -10px rgba(0,0,0,0.75);
   background: #f0f0f0;
-
-  .large-card-header {
-    height: 400px;
-    background-size: cover;
-  }
 
   .large-card-details {
     .details-header {
       display: flex;
       align-items: center;
       flex-direction: column;
-      border-bottom: 1px solid #ddd;
-      padding: 25px;
+      height: 150px;
+      padding: 30px;
       h2 {
         font-size: 36px;
         font-weight: normal;
@@ -30,6 +25,7 @@
 
       p {
         margin: 10px 0;
+        font-style: italic;
       }
     }
   }
@@ -63,12 +59,26 @@
 
 .dose-card-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   height: 100%;
   width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 25px;
+}
 
+.dose-card.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    font-size: 16px;
+    color: black;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .dose-card {
@@ -77,11 +87,18 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid #a0a0a0;
   height: 50px;
   min-width: 150px;
   margin: 0 10px;
   background: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  transition: box-shadow 0.5s ease;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+
+  }
 
   h4 {
     font-size: 14px;
