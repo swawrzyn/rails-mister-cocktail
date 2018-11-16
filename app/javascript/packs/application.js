@@ -7,7 +7,10 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 import 'bootstrap';
+$('.front').click(function(){
+  $(this).parents('.card').addClass('flip');
+});
 
-$('.card').click(function(){
-  $(this).toggleClass('flip');
+$('.flip-button').click(function(){
+  $(this).parents('.card').removeClass('flip');
 });

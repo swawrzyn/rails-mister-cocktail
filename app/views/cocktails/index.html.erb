@@ -9,11 +9,20 @@
       <div class="card-container">
         <div class="card">
             <div class="front" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path cocktail.photo.url(:card) unless cocktail.photo.nil? %>')">
-                <%= cocktail.name %>
-                <%= link_to 'go to cocktail', cocktail_path(cocktail) %>
+         url('<%= cl_image_path cocktail.photo.url(:card) %>')">
+                <div class="card-title">
+                  <h3><%= cocktail.name %></h3>
+                </div>
+                <div class="stars">
+                  <% cocktail.avg_rating.times do %>
+                    <span class='glyphicon glyphicon-star'></span>
+                  <% end %>
+                </div>
             </div>
             <div class="back">
+              <div class="flip-button">
+                <span class="glyphicon glyphicon-repeat"></span>
+              </div>
                 <ul>
                   <% cocktail.doses.each do |dose| %>
                   <li><%= dose.ingredient.name %> - <%= dose.description %></li>
