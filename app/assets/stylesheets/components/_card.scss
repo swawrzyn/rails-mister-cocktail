@@ -1,49 +1,41 @@
+.card-container {
+  width: 300px;
+  height: 260px;
+  perspective: 800px;
+}
 .card {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
-  position: relative;
-  margin: 10px 0;
-}
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
-}
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
   width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
+  height: 100%;
 }
-.card-link:hover {
-  opacity: 0.1;
+
+.card div {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+    z-index:10;
+}
+.card .front {
+  background: red;
+}
+.card .back {
+  background: blue;
+  z-index:0;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.card.flip .front {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+    z-index:0;
+}
+.card.flip .back {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+    z-index:10;
 }

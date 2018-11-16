@@ -1,18 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="card-padding">
-      <% @cocktails.each do |cocktail| %>
-    <div class="col col-xs-12 col-sm-6 col-md-3">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-      <div class="card-category"><%= cocktail.name %></div>
-      <div class="card-description">
-      </div>
-      <img class="card-user" src="">
-      <%= link_to '', cocktail_path(cocktail), class: 'card-link' %>
-    </div>
+    <div class="card-wrapper">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col col-xs-12 col-sm-6 col-md-4">
+
+      <div class="card-container">
+        <div class="card">
+            <div class="front">
+                <%= cocktail.name %>
+                <%= link_to 'go to cocktail', cocktail_path(cocktail) %>
+            </div>
+            <div class="back">
+                <ul>
+                  <% cocktail.doses.each do |dose| %>
+                  <li><%= dose.ingredient.name %> - <%= dose.description %></li>
+                <% end %>
+                </ul>
+            </div>
+        </div>
+        </div>
+
+
     </div>
     <% end %>
-    </div>
+  </div>
   </div>
 </div>
 

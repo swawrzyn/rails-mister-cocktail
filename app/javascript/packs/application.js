@@ -8,5 +8,6 @@
 // layout file, like app/views/layouts/application.html.erb
 import 'bootstrap';
 
-console.log('Hello World from Webpacker')
-
+$('.card').click(function(){
+  $(this).toggleClass('flip');
+});
