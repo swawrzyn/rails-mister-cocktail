@@ -4,6 +4,8 @@
     <%= d.association :ingredient, collection: Ingredient.all %>
     <%= d.input :description %>
   <% end %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <%= f.button :submit %>
 <% end %>
 

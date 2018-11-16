@@ -18,6 +18,7 @@ gem 'webpacker'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 gem 'dotenv-rails', groups: [:development, :test]
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -43,10 +44,10 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'simple_form'
-gem 'foundation-rails'
 
-#cloudinary for image hosting
+#cloudinary for image hosting carrierwave for image model associations
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 # faker
 

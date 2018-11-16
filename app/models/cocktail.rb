@@ -3,6 +3,7 @@ class Cocktail < ApplicationRecord
   validates :name, uniqueness: true, presence: true, allow_nil: false, allow_blank: false
   has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   accepts_nested_attributes_for :doses
+  mount_uploader :photo, PhotoUploader
 end
