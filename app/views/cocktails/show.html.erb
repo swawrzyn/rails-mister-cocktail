@@ -1,3 +1,4 @@
+<%= render 'partials/navbar' %>
 <%= render 'partials/banner', photo: @cocktail.photo %>
 <div class="container">
   <div class="row">
@@ -7,12 +8,12 @@
           <div class="details-header">
             <h2><%= @cocktail.name %></h2>
               <div class="average-rating">
-                <% if @cocktail.reviews.count %>
+                <% if @cocktail.reviews.count == 0 %>
                   <p>No reviews</p>
                   <% else %>
-                     <% @cocktail.avg_rating.times do %>
-                    <span class='glyphicon glyphicon-star'></span>
-                  <% end %>
+                    <% @cocktail.avg_rating.times do %>
+                      <span class='glyphicon glyphicon-star'></span>
+                    <% end %>
                 <% end %>
 
               </div>
