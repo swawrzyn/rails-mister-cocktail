@@ -14,3 +14,10 @@ $('.front').click(function(){
 $('.flip-button').click(function(){
   $(this).parents('.card').removeClass('flip');
 });
+
+$(document).scroll(function () {
+  var $nav = $(".navbar-fixed-top");
+  var $banner = $(".banner");
+  $nav.toggleClass('navbar-wagon-white', $(this).scrollTop() > ($banner.height()/2));
+  $(".banner-content").toggleClass('hidden', $(this).scrollTop() > ($banner.height()/2));
+});

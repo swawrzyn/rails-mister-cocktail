@@ -1,48 +1,63 @@
 <%= render 'partials/navbar' %>
-<%= render 'partials/banner', photo: Cocktail.all.sample.photo %>
+<%= render 'partials/banner', photo: Cocktail.all.sample.photo, index: true %>
 
 <div class="container">
   <div class="row">
-    <div class="card-wrapper">
     <% @cocktails.each do |cocktail| %>
       <div class="col col-xs-12 col-sm-6 col-md-4">
-
-      <div class="card-container">
-        <div class="card">
-            <div class="front" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path cocktail.photo.url(:card) %>')">
-                <div class="card-title">
-                  <h3><%= cocktail.name %></h3>
-                </div>
-                <div class="stars">
-                  <% cocktail.avg_rating.times do %>
-                    <span class='glyphicon glyphicon-star'></span>
-                  <% end %>
-                </div>
-            </div>
-            <div class="back">
-              <div class="flip-button">
-                <span class="glyphicon glyphicon-repeat"></span>
+        <div class="card-container align-center">
+      
+          <div class="card">
+            <div class="front" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo.url(:card) %>')">
+              <div class="card-title">
+                <h3><%= cocktail.name %></h3>
               </div>
-              <div class="back-content">
-                <div class="title">Ingredients</div>
-                <table class="table table-condensed doses">
-                <% cocktail.doses.each do |dose| %>
-                   <tr><td class="ingredient"><%= dose.ingredient.name %></td><td class="description text-right"><%= dose.description %></td></tr>
+              <div class="stars">
+                <% cocktail.avg_rating.times do %>
+                  <span class='glyphicon glyphicon-star'></span>
                 <% end %>
-                </table>
-                 <div class="go-button">
-                  <%= link_to 'More Information', cocktail_path(cocktail), class: 'btn btn-default' %>
-                 </div>
               </div>
             </div>
-        </div>
-        </div>
+            
+            <div class="back">
 
+                <div class="flip-button">
+                  <span class="glyphicon glyphicon-repeat"></span>
+                </div>
 
-    </div>
+                <div class="back-content">
+
+                  <div class="title">Ingredients</div>
+
+                  <table class="table table-condensed doses">
+                  <% cocktail.doses.each do |dose| %>
+                    <tr><td class="ingredient"><%= dose.ingredient.name %></td><td class="description text-right"><%= dose.description %></td></tr>
+                  <% end %>
+                  </table>
+
+                  <div class="go-button">
+                    <%= link_to 'More Information', cocktail_path(cocktail), class: 'btn btn-default' %>
+                  </div>
+                  
+                </div>
+
+            </div>
+          </div>
+      
+        </div>
+      </div>
     <% end %>
   </div>
-  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>
 
