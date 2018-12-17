@@ -1,0 +1,17 @@
+<% @reviews.each do |review| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= review.content %>
+    </div>
+    <div class="panel-footer">
+      <div class="stars">
+        <% review.rating.times do %>
+          <span class='glyphicon glyphicon-star'></span>
+        <% end %>
+      </div>
+      <div class="time">
+        <%= review.created_at.strftime("Posted: %m/%d/%Y at %I:%M%p")  %>
+      </div>
+    </div>
+</div>
+<% end %>

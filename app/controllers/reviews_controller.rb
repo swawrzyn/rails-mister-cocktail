@@ -6,12 +6,19 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.cocktail = Cocktail.find(params[:cocktail_id])
-    if @review.save
-      redirect_to cocktail_path(params[:cocktail_id])
-    else
-      render :new
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @review.cocktail = @cocktail
+    
+    respond_to do |format|
+      if @review.save
+        @reviews = @cocktail.reviews.reverse
+        format.js { }
+        format.html { redirect_to cocktail_path(params[:cocktail_id]) }
+      else
+        format.html { redirect_to cocktail_path(params[:cocktail_id]) }
+      end
     end
+    
   end
 
   private

@@ -7,6 +7,7 @@
         <div class="large-card-details">
           <div class="details-header">
             <h2><%= @cocktail.name %></h2>
+            <h5><%= @cocktail.description %></h5>
               <div class="average-rating">
                 <% if @cocktail.reviews.count == 0 %>
                   <p>No reviews</p>
@@ -24,7 +25,7 @@
 
           <div class="details-reviews">
             <div class="add-review">
-              <%= simple_form_for [@cocktail, @review] do |f| %>
+              <%= simple_form_for [@cocktail, @review], remote: true do |f| %>
               <div class="panel panel-default">
                 <div class="panel-body">
                   <%= f.input :content, label: false, placeholder: 'Type in your review' %>
@@ -34,28 +35,12 @@
                   <%= f.submit "add a review", class: "btn btn-primary" %>
                 </div>
               </div>
-
               <% end %>
             </div>
 
-              <% @reviews.each do |review| %>
-            <div class="panel panel-default">
-            <div class="panel-body">
-              <%= review.content %>
+            <div class="reviews-partial">
+              <%= render 'partials/reviews' %>
             </div>
-            <div class="panel-footer">
-              <div class="stars">
-                <% review.rating.times do %>
-                  <span class='glyphicon glyphicon-star'></span>
-                <% end %>
-              </div>
-              <div class="time">
-                <%= review.created_at.strftime("Posted: %m/%d/%Y at %I:%M%p")  %>
-              </div>
-            </div>
-          </div>
-          <% end %>
-
           </div>
         </div>
       </div>

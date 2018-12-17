@@ -2,17 +2,25 @@
 <%= render 'partials/banner', photo: Cocktail.all.sample.photo, index: true %>
 
 <div class="container">
-  <div class="row">
+  <% if params[:query].present? %>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3 style="text-align: center; margin-top: 25px; margin-bottom: 0;">your search for '<%= params[:query] %>' returned <%= @cocktails.count %> results.</h3>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">    
     <% @cocktails.each do |cocktail| %>
       <div class="col col-xs-12 col-sm-6 col-md-4">
         <div class="card-container align-center">
       
           <div class="card">
-            <div class="front" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo.url(:card) %>')">
+            <div class="front" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path cocktail.photo.url(:card) %>')">
               <div class="card-title">
                 <h3><%= cocktail.name %></h3>
               </div>
               <div class="stars">
+              <h4><%= cocktail.description %></h4>
                 <% cocktail.avg_rating.times do %>
                   <span class='glyphicon glyphicon-star'></span>
                 <% end %>
@@ -36,7 +44,7 @@
                   </table>
 
                   <div class="go-button">
-                    <%= link_to 'More Information', cocktail_path(cocktail), class: 'btn btn-default' %>
+                    <%= link_to 'more info', cocktail_path(cocktail), class: 'btn btn-default' %>
                   </div>
                   
                 </div>

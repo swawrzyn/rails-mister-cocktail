@@ -7,15 +7,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: transparent;
+  color: white;
+  
+  
 }
+
+.logo-text {
+  color: white;
+  
+  &.hide-logo {
+    opacity: 0;
+  }
+}
+
 
 .navbar-wagon-white {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background-color: white !important;
-  color: black;
-  a {
+  color: black !important;
+  .logo-text {
     color: black;
+  }
+  a {
+    color: black !important;
   }
 }
 
@@ -46,11 +60,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #c0c0c0;
+  color: #fff;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #fff;
+  color: #e0e0e0;
   text-decoration: none;
 }
 

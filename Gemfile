@@ -39,7 +39,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-#rest client?
+# rest client?
 gem 'rest-client', '~> 2.0.2'
 # front-end gems
 gem 'autoprefixer-rails'
@@ -47,6 +47,10 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jasny-bootstrap-rails'
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'simple_form'
+
+# pg search
+gem 'pg_search'
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-holderjs'
