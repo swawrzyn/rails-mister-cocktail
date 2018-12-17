@@ -1,6 +1,69 @@
 .details-form {
-  height: 300px;
+  height: 500px;
+  padding: 25px;
+}
+
+.details-form-input {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.cocktail_name input {
+  background: transparent;
+  height: 50px;
+  font-size: 36px;
+  border: 0;
+  box-shadow: inset 0px 0px 0px 0px red;
+  border-bottom: 1px solid grey;
+  transition: border-bottom 0.25s ease;
+  margin: 25px 0;
+
+  &:focus {
+    border: 0;
+    box-shadow: inset 0px 0px 0px 0px red;
+    border-bottom: 2px solid black;
+    transition: border-bottom 0.25s ease;
+  }
+}
+
+.cocktail_description input {
+  background: transparent;
+  height: 32px;
+  font-size: 18px;
+  border: 0;
+  box-shadow: inset 0px 0px 0px 0px red;
+  border-bottom: 1px solid grey;
+  transition: border-bottom 0.25s ease;
+  margin: 25px 0;
+
+  &:focus {
+    border: 0;
+    box-shadow: inset 0px 0px 0px 0px red;
+    border-bottom: 2px solid black;
+    transition: border-bottom 0.25s ease;
+  }
+}
+
+.cocktail_photo[input=file] {
+  font-size: 18px;
+  background: transparent;
+  margin: 25px 0;
+}
+
+.button-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.submit-button {
+  text-transform: lowercase;
+  margin: 25px auto;
+}
+
+.thumbnail {
+  border: 1px solid grey;
+  background: transparent;
 }

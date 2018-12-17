@@ -17,8 +17,14 @@ class DosesController < ApplicationController
   def create
     @dose = Dose.new(dose_params)
     @dose.cocktail = @cocktail
-    @dose.save
-    redirect_to cocktail_path(@cocktail)
+    respond_to do |format|
+      if @dose.save
+        @doses = @cocktail.doses
+        format.js {}
+      else
+      end
+    end
+    
   end
 
   def edit
@@ -29,14 +35,22 @@ class DosesController < ApplicationController
 
   def update
     @dose.update(dose_update_params)
-    redirect_to cocktail_path(@cocktail)
+    @doses = @cocktail.doses
+    respond_to do |format|
+      format.js { }
+      format.html { redirect_to cocktail_path(@cocktail) }
+    end
   end
 
   def delete; end
 
   def destroy
     @dose.destroy
-    redirect_to cocktail_path(@cocktail)
+    @doses = @cocktail.doses
+    respond_to do |format|
+      format.js { }
+      format.html { redirect_to cocktail_path(@cocktail) }
+    end
   end
 
   private

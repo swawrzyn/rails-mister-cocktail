@@ -1,6 +1,11 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
-  <h4>drinks³</h4>
+  <% if !index %>
+    <h4 style="color: white;">drinks³</h4>
+    <% else %>
+    <h4>drinks³</h4>
+  <% end %>
+  
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">

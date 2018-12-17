@@ -44,8 +44,13 @@ gem 'rest-client', '~> 2.0.2'
 # front-end gems
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jasny-bootstrap-rails'
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'simple_form'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-holderjs'
+end
 
 #cloudinary for image hosting carrierwave for image model associations
 gem 'cloudinary'

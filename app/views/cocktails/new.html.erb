@@ -1,4 +1,5 @@
-<%= render 'partials/banner', photo: Cocktail.all.sample.photo %>
+<%= render 'partials/navbar', index: false %>
+<%= render 'partials/banner', photo: Cocktail.all.sample.photo, title: 'share your drink' %>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
@@ -7,10 +8,22 @@
           <div class="details-form">
             <div class="details-form-input">
               <%= simple_form_for(@cocktail) do |f| %>
-                <%= f.input :name, label: false, placeholder: 'Cocktail name' %>
-                <%= f.input :photo %>
+                <%= f.input :name, label: false, placeholder: 'cocktail name' %>
+                <%= f.input :description, label: false, placeholder: 'description' %>
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                  <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                    <img src="https://dummyimage.com/200x150/f0f0f0/000.png&text=image+upload+required" alt="please upload photo">
+                  </div>
+                  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                  <div>
+                    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>
+                    <%= f.file_field :photo %></span>
+                  </div>
+                </div>
                 <%= f.input :photo_cache, as: :hidden %>
-                <%= f.button :submit, class: 'text-center'%>
+                <div class="button-box">
+                  <%= f.button :submit, class: 'text-center submit-button'%>
+                </div>
               <% end %>
             </div>
               </div>
@@ -19,4 +32,4 @@
     </div>
   </div>
 </div>
-
+<%= javascript_pack_tag "cocktails/new" %>
