@@ -30,7 +30,7 @@ end
 
 puts "Adding Cocktails"
 10.times do
-  c = Cocktail.create(name: Faker::Hipster.words(2).join(' '))
+  c = Cocktail.create(name: Faker::Hipster.words(2).join(' '), description: Faker::Hipster.sentence)
   c.remote_photo_url = photourls.sample
   c.save
 end
