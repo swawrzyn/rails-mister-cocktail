@@ -5,7 +5,7 @@
       <div class="dose-card">
     <h4><%= dose.ingredient.name %></h4>
     <p><%= dose.description %></p>
-    <%= link_to 'edit', edit_cocktail_dose_path(@cocktail, dose), remote: true, class: 'edit-button' %>
+    <%= link_to 'edit', edit_cocktail_dose_path(@cocktail, dose), remote: true, authenticity_token: true, class: 'edit-button' %>
       </div>
 
 
@@ -13,7 +13,7 @@
 <% end %>
 
     <div class="dose-card add">
-    <%= link_to 'add dose' , new_cocktail_dose_path(@cocktail), remote: true %>
+    <%= link_to 'add dose' , new_cocktail_dose_path(@cocktail), remote: true, authenticity_token: true %>
       </div>
 </div>
 
