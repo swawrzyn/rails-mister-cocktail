@@ -8,6 +8,8 @@ class DosesController < ApplicationController
 
   def new
     @dose = Dose.new
+    current_doses = @cocktail.doses.map { |dose| dose.ingredient.name }
+    @ingredients = Ingredient.all.reject { |ing| current_doses.include?(ing.name) }.sort_by { |ing| ing.name }
     respond_to do |format|
       format.js {}
       format.html { render :new }

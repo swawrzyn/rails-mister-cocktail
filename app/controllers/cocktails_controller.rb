@@ -4,7 +4,7 @@ class CocktailsController < ApplicationController
     if params[:query].present?
       @cocktails = Cocktail.global_search(params[:query])
     else
-      @cocktails = Cocktail.all
+      @cocktails = Cocktail.all.sort_by { |cocktail| cocktail.avg_rating }.reverse
     end
   end
 

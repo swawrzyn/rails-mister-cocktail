@@ -1,5 +1,12 @@
-<%= simple_form_for [@cocktail, @dose], url: { controller: 'doses', action: 'create', format: :js }, remote: true do |f| %>
-  <%= f.association :ingredient, collection: Ingredient.all %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+<div class="dose-wrapper">
+  <%= link_to cocktail_path(@cocktail), class: "exit-button", remote: true do %>
+    <span class="glyphicon glyphicon-remove"></span>
+  <% end %>
+  <div class="dose-form">
+    <%= simple_form_for [@cocktail, @dose], url: { controller: 'doses', action: 'create', format: :js }, remote: true do |f| %>
+      <%= f.association :ingredient, label: false, prompt: 'choose an ingredient', collection: @ingredients %>
+      <%= f.input :description, label: false, placeholder: 'description (ie. one pinch, 5ml)' %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

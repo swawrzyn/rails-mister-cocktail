@@ -16,6 +16,11 @@ $('.flip-button').click(function(){
   $(this).parents('.card').removeClass('flip');
 });
 
+$(".exit-button").click(function(){
+  console.log('clicking...');
+  $(".dose-info").html("<p>lol</p>");
+});
+
 $(document).scroll(function () {
   var $nav = $(".navbar-fixed-top");
   var $banner = $(".banner");

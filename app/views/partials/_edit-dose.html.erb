@@ -1,10 +1,15 @@
-<%= simple_form_for [@cocktail, @dose], url: { controller: 'doses', action: 'update', format: :js }, remote: true do |f| %>
-  <%= f.association :ingredient, collection: Ingredient.all, disabled: true %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-  <%= link_to "Delete", cocktail_dose_path(@cocktail), remote: true, authenticity_token: true,
-      method: :delete,
-      data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
-<% end %>
-
-
+<div class="dose-wrapper">
+  <%= link_to cocktail_path(@cocktail), class: "exit-button", remote: true do %>
+    <span class="glyphicon glyphicon-remove"></span>
+  <% end %>
+  <div class="dose-form">
+    <%= simple_form_for [@cocktail, @dose], url: { controller: 'doses', action: 'update', format: :js }, remote: true do |f| %>
+      <%= f.association :ingredient, label: false, collection: Ingredient.all, disabled: true %>
+      <%= f.input :description, label: false %>
+      <%= f.button :submit %>
+      <%= link_to "Delete", cocktail_dose_path(@cocktail), remote: true, authenticity_token: true,
+          method: :delete,
+          data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+</div>
