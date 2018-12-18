@@ -10,6 +10,25 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
+    
+    <% if index %>
+      <%= form_tag cocktails_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control index-nav-search-box hide",
+        placeholder: "search"
+      %>
+      <% end %>
+      <% else %>
+      <%= form_tag cocktails_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control nav-search-box",
+        placeholder: "search"
+      %>
+      <% end %>
+    <% end %>
+    
 
     <%= link_to 'Home', root_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <%= link_to 'Add Cocktail', new_cocktail_path, class: 'navbar-wagon-item navbar-wagon-link' %>

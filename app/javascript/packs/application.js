@@ -20,5 +20,6 @@ $(document).scroll(function () {
   var $nav = $(".navbar-fixed-top");
   var $banner = $(".banner");
   $nav.toggleClass('navbar-wagon-white', $(this).scrollTop() > ($banner.height()/2));
+  $(".index-nav-search-box").toggleClass('hide', $(this).scrollTop() < ($banner.height()/2));
   $(".logo-text").toggleClass('hide-logo', $(this).scrollTop() < ($banner.height()/2));
 });
