@@ -15,6 +15,8 @@ class ReviewsController < ApplicationController
         format.js { }
         format.html { redirect_to cocktail_path(params[:cocktail_id]) }
       else
+        @reviews = @cocktail.reviews.reverse
+        format.js { render :new }
         format.html { redirect_to cocktail_path(params[:cocktail_id]) }
       end
     end

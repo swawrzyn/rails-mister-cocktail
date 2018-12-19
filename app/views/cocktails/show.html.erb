@@ -31,8 +31,10 @@
                   <%= f.input :content, label: false, placeholder: 'Type in your review' %>
                 </div>
                 <div class="panel-footer" style="height: 56px;">
-                  <%= f.input :rating, label: false, placeholder: 'Type in a rating from 1-5' %>
-                  <%= f.submit "add a review", class: "btn btn-primary" %>
+                  
+                  <%= f.input :rating, label: false, input_html: { type: 'hidden', class: 'star-rating'} %>
+
+                  <%= f.submit "add review", class: "btn submit-button" %>
                 </div>
               </div>
               <% end %>
@@ -47,58 +49,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- <h3><%= @cocktail.name %></h3>
-
-<table>
-  <thead><td>Ingredient Name</td><td>Amount</td><td>Edit</td></thead>
-  <tbody>
-    <% @doses.each do |dose| %>
-      <tr><td><%= dose.ingredient.name %></td><td><%= dose.description %></td><td><%= link_to 'Edit', edit_cocktail_dose_path(@cocktail, dose) %></td><td><%= link_to "Delete", cocktail_dose_path(@cocktail, dose),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %></td></tr>
-    <% end %>
-  </tbody>
-</table>
-</br>
-<p>
-  <strong>Reviews</strong>
-  <table>
-  <thead>
-    <tr>
-      <th>Rating</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.rating %></td>
-        <td><%= review.content  %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  </table>
-</p>
-
-
-
-<h2>Add Ingredient</h2>
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.association :ingredient, collection: Ingredient.all %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
-
-<h2>Add Review</h2>
-<%= simple_form_for [@cocktail, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating, collection: 0..5 %>
-  <%= f.button :submit, "Add a review", class: "btn btn-primary" %>
-<% end %>
-
-<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %> | <%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail) %> | <%= link_to 'Go back', cocktails_path %>
- -->

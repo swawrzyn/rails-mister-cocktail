@@ -2,18 +2,22 @@
     <% @doses.each do |dose| %>
 
       <div class="dose-card">
-    <h4><%= dose.ingredient.name %></h4>
-    <p><%= dose.description %></p>
-    <%= link_to 'edit', edit_cocktail_dose_path(@cocktail, dose), remote: true, authenticity_token: true, class: 'edit-button' %>
+        <div class="name"><%= dose.ingredient.name %></div>
+        <div class="desc"><%= dose.description %></div>
+    <%= link_to edit_cocktail_dose_path(@cocktail, dose), remote: true, authenticity_token: true, class: 'edit-button' do %>
+      <span class="glyphicon glyphicon-edit"></span>
+    <% end %>
       </div>
 
 
 
 <% end %>
-
-    <div class="dose-card add">
-    <%= link_to 'add dose' , new_cocktail_dose_path(@cocktail), remote: true, authenticity_token: true %>
+    <% if @doses.length < 9 %>
+      <div class="dose-card add">
+      add dose
+        <%= link_to '' , new_cocktail_dose_path(@cocktail), remote: true, authenticity_token: true %>
       </div>
+    <% end %>
 </div>
 
 

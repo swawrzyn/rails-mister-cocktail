@@ -1,3 +1,2 @@
-console.log("create.js.erb file");
-
+$("#show_error").html("<%= flash[:error] %>");
 document.querySelector(".dose-info").innerHTML = "<%= j render 'partials/dose-list' %> ";

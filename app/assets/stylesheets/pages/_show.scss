@@ -1,6 +1,5 @@
 .large-card {
   border: 0.5px solid #ddd;
-  margin: 20px;
   width: 100%;
   margin-top: -25vh;
   margin-bottom: 150px;
@@ -55,6 +54,16 @@
       padding: 25px;
       text-align: center;
     }
+
+    input {
+      border-style: none;
+      outline: 0;
+      margin-bottom: -15px;
+    }
+
+    .submit-button {
+      margin-right: 0 !important;
+    }
   }
 
   .panel-footer {
@@ -73,8 +82,6 @@
 }
 
 .dose-info {
-  width: 100%;
-  height: 300px;
   border-bottom: 1px solid #ddd;
   margin: 25px 0;
 }
@@ -84,7 +91,8 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
   background: rgb(225, 225, 225);
   box-shadow: 0px 0px -4px -10px rgba(0,0,0,0.5);
   position: relative;
@@ -107,20 +115,30 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  height: 100%;
-  width: 100%;
+  align-content: center;
 }
 
 .dose-card.add {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
   a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     font-size: 16px;
     color: black;
     &:hover {
       text-decoration: none;
     }
+  }
+
+  &:hover {
+    background: whitesmoke;
+    transition: background 0.25s ease-in;
   }
 }
 
@@ -128,18 +146,42 @@
   display: flex;
   position: relative;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
   border: 1px solid #a0a0a0;
-  height: 50px;
-  min-width: 150px;
+  height: 75px;
+  width: 250px;
   margin: 10px;
+  
   background: #fff;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
-  transition: box-shadow 0.5s ease;
+  box-shadow: 0px 11px 10px -8px rgba(0,0,0,0.75);
+  transition: box-shadow 0.25s ease-in;
+
+  .name {
+    width: 66%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .desc {
+    width: 34%;
+    height: 100%;
+    background: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    text-align: center;
+  }
 
   &:hover {
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 11px 30px -8px rgba(0,0,0,0.75);
 
   }
 
@@ -156,28 +198,51 @@
 
   .edit-button {
     position: absolute;
-    visibility: hidden;
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: 0;
-    color: white;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+    color: black;
     z-index: 2;
     transition: opacity 0.2s 0s ease;
-  }
+    text-decoration: none;
 
-  &:hover {
-    .edit-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0.5;
-      visibility: visible;
+    &:hover {
+      opacity: 0.75;
     }
   }
 }
 
 .dose-form {
   width: 50%;
-  margin: 0 auto;
+  margin: 25px auto;
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: 10px;
+  position: absolute;
+}
+
+.button-box {
+  width: 100%;
+  display: flex;
+}
+
+.submit-button {
+  background: black;
+  color: white;
+  margin: 0 25px !important;
+}
+
+.delete-button {
+  margin: 0 25px !important;
+  color: white;
+  background: red;
+  text-transform: lowercase;
+}
+
+@media (max-width: 400px) {
+  .submit-button {
+    font-size: 10px;
+  }
 }

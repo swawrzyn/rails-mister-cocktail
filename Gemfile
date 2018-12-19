@@ -55,6 +55,10 @@ gem 'pg_search'
 source 'https://rails-assets.org' do
   gem 'rails-assets-holderjs'
 end
+# favicon 
+group :development do
+  gem 'rails_real_favicon'
+end
 
 #cloudinary for image hosting carrierwave for image model associations
 gem 'cloudinary'

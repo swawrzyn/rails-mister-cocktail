@@ -8,13 +8,28 @@
   align-items: center;
   justify-content: space-between;
   color: white;
-  
-  
 }
 
 .logo-text {
   color: white;
-  
+  font-size: 36px;
+  font-family: $headers-font;
+
+  &:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.index-logo-text {
+  color: white;
+  font-size: 36px;
+
+  &:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
   &.hide-logo {
     opacity: 0;
   }
@@ -109,4 +124,25 @@
   border: 0;
   outline: 0;
   color: white;
+}
+
+@media (max-width: 400px) {
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .index-logo-text {
+    font-size: 24px;
+  }
+  .nav-search-box {
+    display: none !important;
+  }
+
+  .index-nav-search-box {
+    display: none !important;
+  }
+  .navbar-wagon-link {
+    font-size: 10px !important;
+  }
+
 }

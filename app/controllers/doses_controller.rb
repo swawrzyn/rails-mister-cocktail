@@ -10,6 +10,7 @@ class DosesController < ApplicationController
     @dose = Dose.new
     current_doses = @cocktail.doses.map { |dose| dose.ingredient.name }
     @ingredients = Ingredient.all.reject { |ing| current_doses.include?(ing.name) }.sort_by { |ing| ing.name }
+    puts "ingredients #{@ingredients}"
     respond_to do |format|
       format.js {}
       format.html { render :new }
@@ -22,8 +23,11 @@ class DosesController < ApplicationController
     respond_to do |format|
       if @dose.save
         @doses = @cocktail.doses
-        format.js {}
+        format.js { }
       else
+        current_doses = @cocktail.doses.map { |dose| dose.ingredient.name }
+        @ingredients = Ingredient.all.reject { |ing| current_doses.include?(ing.name) }.sort_by { |ing| ing.name }
+        format.js { render :new }
       end
     end
     
