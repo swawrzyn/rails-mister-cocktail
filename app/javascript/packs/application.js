@@ -7,6 +7,7 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 import 'bootstrap';
+import 'bootstrap-rating';
 
 $('.front').click(function(){
   $(this).parents('.card').addClass('flip');
@@ -29,3 +30,8 @@ $(document).scroll(function () {
   $(".index-logo-text").toggleClass('hide-logo', $(this).scrollTop() < ($banner.height()/2));
 });
 
+
+$('.star-rating').rating({
+  filled: 'glyphicon glyphicon-star large-rating',
+  empty: 'glyphicon glyphicon-star-empty large-rating'
+});

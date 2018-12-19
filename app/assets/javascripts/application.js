@@ -17,8 +17,3 @@
 //= require jasny-bootstrap.min
 //= require holderjs
 //= require_tree .
-
-$('.star-rating').rating({
-  filled: 'glyphicon glyphicon-star large-rating',
-  empty: 'glyphicon glyphicon-star-empty large-rating'
-});

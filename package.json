@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "bootstrap": "3",
+    "bootstrap-rating": "0.0.1",
     "compass-mixins": "^0.12.10",
     "jquery": "^3.3.1"
   },
