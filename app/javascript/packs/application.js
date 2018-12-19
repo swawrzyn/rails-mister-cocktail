@@ -29,7 +29,3 @@ $(document).scroll(function () {
   $(".index-logo-text").toggleClass('hide-logo', $(this).scrollTop() < ($banner.height()/2));
 });
 
-$('.star-rating').rating({
-  filled: 'glyphicon glyphicon-star large-rating',
-  empty: 'glyphicon glyphicon-star-empty large-rating'
-});
