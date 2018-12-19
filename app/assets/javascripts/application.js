@@ -18,7 +18,10 @@
 //= require holderjs
 //= require_tree .
 
-$('.star-rating').rating({
-  filled: 'glyphicon glyphicon-star large-rating',
-  empty: 'glyphicon glyphicon-star-empty large-rating'
+$(document).ready(function(){
+  $('.star-rating').rating({
+    filled: 'glyphicon glyphicon-star large-rating',
+    empty: 'glyphicon glyphicon-star-empty large-rating'
+  });
 });
+
